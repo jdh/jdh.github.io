@@ -125,11 +125,18 @@
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:yoursite.com">
+  <form  action="//www.baidu.com/s?" method="get" onsubmit="return searchData()" accept-charset="utf-8">
+    <input id="search" type="search" name="temp" results="0" placeholder="搜索">
+    <input id="realVale" type="hidden" name="wd" value="site:jdh.github.io">
   </form>
 </div>
+<script>
+	function searchData(){
+        var result = document.getElementById("search").value;
+        document.getElementById("realVale").value = "site:jdh.github.io  " + result ;
+        return true;
+	}
+</script>
 
   
 <div class="widget tag">
