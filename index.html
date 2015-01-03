@@ -55,6 +55,128 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-01-03T03:50:19.000Z"><a href="/2015/01/03/scope/">1月 3 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/01/03/scope/">作用域</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="执行环境、作用域概念、this的含义有哪些需要注意的地方">执行环境、作用域概念、this的含义有哪些需要注意的地方</h1>
+<h2 id="执行环境">执行环境</h2>
+<p>执行环境定义了变量或者函数有权访问的其他数据（<strong>即在此环境中执行代码能访问操作哪些变量和函数</strong>），每个执行环境都有一个与之关联的<strong>变量对象</strong>，环境中定义的所有变量和函数都保存其中。</p>
+<h2 id="作用域：">作用域：</h2>
+<ul>
+<li><strong>作用域</strong>，就是执行环境中能对其产生作用的变量和函数的范围区域；<br>执行环境里定义了哪些变量和函数能访问，而访问顺序又是怎样的呢，例如：在内部执行环境与外部执行环境都存在相同名字的变量，执行环境以怎样的次序访问呢？</li>
+<li><strong>作用域链</strong>：作用域链也是在执行环境时创建的，保证执行环境有权访问的变量和函数有序访问。<br>当前执行环境，只能访问当前环境和其外部执行环境所在变量函数，其内部执行环境变量函数不能访问。</li>
+</ul>
+<p>两种情况可延长作用域：</p>
+<ul>
+<li>try-catch语句的catch块；</li>
+<li>with语句；</li>
+</ul>
+<p>js没有块级作用域，即花括号{}封闭的代码块没有自己的作用域，而是添加到当前执行环境中。</p>
+<h2 id="应用场景">应用场景</h2>
+<ul>
+<li>保护函数内的变量安全。以最开始的例子为例，函数f1中a只有函数f2才能访问，而无法通过其他途径访问到，因此保护了i的安全性。</li>
+<li>在内存中维持一个变量。依然如前例，由于闭包，函数f1中n的一直存在于内存中，因此每次执行nAdd()，都会给n自加1。</li>
+<li>通过保护变量的安全实现JS私有属性和私有方法（不能被外部访问）</li>
+</ul>
+<h2 id="如何实现闭包：">如何实现闭包：</h2>
+<p>简单闭包如前面例子，下面写一个常见的闭包与变量的问题。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function createFunctions(){</div><div class="line">      <span class="keyword">var</span> <span class="literal">result</span> = new <span class="type">Array</span>();</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++){</div><div class="line">         <span class="literal">result</span>[i]=function(){</div><div class="line">               <span class="keyword">return</span> i;</div><div class="line">          };</div><div class="line">        }</div><div class="line">       <span class="keyword">return</span> <span class="literal">result</span>;</div><div class="line">}</div><div class="line"><span class="keyword">var</span> funcs=createFunctions();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;funcs.length;i++){</div><div class="line">          document.write(funcs[i]()+<span class="string">"&lt;br/&gt;"</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>每次循环funcs<a href="">i</a>输出都是10，并不是从0-10依次输出，因为他们引用的都是同一个变量i.</p>
+<p>我们可以创建另一个匿名函数强制让闭包的行为符合预期。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++){</div><div class="line">          <span class="literal">result</span>[i]=function(m){</div><div class="line">                <span class="keyword">return</span> function(){<span class="keyword">return</span> m;}</div><div class="line">           }(i);</div><div class="line"> }</div></pre></td></tr></table></figure>
+
+<p>这样输出内容就是我们期望的了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-03T03:50:19.000Z"><a href="/2015/01/03/closure/">1月 3 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/01/03/closure/">js闭包</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="闭包的概念、闭包的作用、闭包实用场景、如何实现闭包">闭包的概念、闭包的作用、闭包实用场景、如何实现闭包</h1>
+<h2 id="概念：">概念：</h2>
+<p>闭包就是能够读取其他函数内部变量的函数。由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1(){  </div><div class="line">       <span class="keyword">var</span> a = <span class="string">"1"</span>;  </div><div class="line">       function f2(){  </div><div class="line">               alert(a);  </div><div class="line">       }  </div><div class="line">       <span class="keyword">return</span> f2;  </div><div class="line">}  </div><div class="line"><span class="keyword">var</span> <span class="literal">result</span> = f1();  </div><div class="line"><span class="literal">result</span>()//弹窗口内容<span class="number">1</span></div></pre></td></tr></table></figure>
+
+<p>f2函数定义在f1函数内部，能访问f1内部变量，因此f2就是一个闭包。</p>
+<h2 id="作用：">作用：</h2>
+<ul>
+<li>一个是前面提到的可以读取函数内部的变量</li>
+<li>另一个是让这些变量的值始终保持在内存中,例如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function f1(){</div><div class="line">　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">  nAdd=function(){n+=<span class="number">1</span>}</div><div class="line"> function f2(){</div><div class="line">		 alert(n);</div><div class="line"> }</div><div class="line"> <span class="keyword">return</span> f2;</div><div class="line"></div><div class="line">}</div><div class="line"><span class="keyword">var</span> <span class="literal">result</span>=f1();</div><div class="line"><span class="literal">result</span>(); // <span class="number">999</span></div><div class="line">nAdd();</div><div class="line"><span class="literal">result</span>(); // <span class="number">1000</span></div></pre></td></tr></table></figure>
+
+<p> result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</p>
+<h2 id="应用场景">应用场景</h2>
+<ul>
+<li>保护函数内的变量安全。以最开始的例子为例，函数f1中a只有函数f2才能访问，而无法通过其他途径访问到，因此保护了i的安全性。</li>
+<li>在内存中维持一个变量。依然如前例，由于闭包，函数f1中n的一直存在于内存中，因此每次执行nAdd()，都会给n自加1。</li>
+<li>通过保护变量的安全实现JS私有属性和私有方法（不能被外部访问）</li>
+</ul>
+<h2 id="如何实现闭包：">如何实现闭包：</h2>
+<p>简单闭包如前面例子，下面写一个常见的闭包与变量的问题。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function createFunctions(){</div><div class="line">      <span class="keyword">var</span> <span class="literal">result</span> = new <span class="type">Array</span>();</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++){</div><div class="line">         <span class="literal">result</span>[i]=function(){</div><div class="line">               <span class="keyword">return</span> i;</div><div class="line">          };</div><div class="line">        }</div><div class="line">       <span class="keyword">return</span> <span class="literal">result</span>;</div><div class="line">}</div><div class="line"><span class="keyword">var</span> funcs=createFunctions();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;funcs.length;i++){</div><div class="line">          document.write(funcs[i]()+<span class="string">"&lt;br/&gt;"</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>每次循环funcs<a href="">i</a>输出都是10，并不是从0-10依次输出，因为他们引用的都是同一个变量i.</p>
+<p>我们可以创建另一个匿名函数强制让闭包的行为符合预期。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++){</div><div class="line">          <span class="literal">result</span>[i]=function(m){</div><div class="line">                <span class="keyword">return</span> function(){<span class="keyword">return</span> m;}</div><div class="line">           }(i);</div><div class="line"> }</div></pre></td></tr></table></figure>
+
+<p>这样输出内容就是我们期望的了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-12-04T03:21:47.000Z"><a href="/2014/12/04/js-point/">12月 4 2014</a></time>
       
       
@@ -112,56 +234,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-12-03T03:07:17.000Z"><a href="/2014/12/03/hello-world/">12月 3 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/12/03/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -188,7 +260,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/前端/">前端</a><small>1</small></li>
+    <li><a href="/categories/前端/">前端</a><small>3</small></li>
   
   </ul>
 </div>
@@ -200,7 +272,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 乐海
+  &copy; 2015 乐海
   
 </div>
 <div class="clearfix"></div></footer>
