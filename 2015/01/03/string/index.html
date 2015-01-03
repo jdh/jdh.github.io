@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>字符串操作 | 乐博</title>
+  <meta name="author" content="乐海">
+  
+  <meta name="description" content="前端 滑雪">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="字符串操作"/>
+  <meta property="og:site_name" content="乐博"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="乐博" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">乐博</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/sports">运动</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-03T04:51:06.000Z"><a href="/2015/01/03/string/">1月 3 2015</a></time>
+      
+      
+  
+    <h1 class="title">字符串操作</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="字符串操作有哪些方法，分别返回什么">字符串操作有哪些方法，分别返回什么</h1>
+<h2 id="截取字符_substring_substr_slice">截取字符  substring substr  slice</h2>
+<h3 id="substring_截取并返回指定起始位置和结束位置的子字符串">substring 截取并返回指定起始位置和结束位置的子字符串</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="string">"hello world"</span>;</div><div class="line"><span class="keyword">var</span> b = a.substring(<span class="number">0</span>,<span class="number">5</span>);<span class="comment">// b为hello</span></div></pre></td></tr></table></figure>
+
+<h3 id="substr_截取并返回指定起始位置和截取长度的子字符串">substr 截取并返回指定起始位置和截取长度的子字符串</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="string">"hello world"</span>;</div><div class="line"><span class="keyword">var</span> b = a.substring(<span class="number">6</span>,<span class="number">5</span>);<span class="comment">// b为world</span></div></pre></td></tr></table></figure>
+
+<h3 id="slice_功能同substring">slice 功能同substring</h3>
+<h2 id="分割字符_split">分割字符  split</h2>
+<h3 id="split_通过指定分隔符对字符串进行分割，返回分割后子串的数组">split 通过指定分隔符对字符串进行分割，返回分割后子串的数组</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="string">"hello world"</span>;</div><div class="line"><span class="keyword">var</span> b = a.<span class="built_in">split</span>(<span class="string">" "</span>);<span class="comment">// b为["hello","world"]</span></div></pre></td></tr></table></figure>
+
+<h2 id="合并字符_concat">合并字符 concat</h2>
+<h3 id="concat_方法用于连接两个或多个字符串">concat 方法用于连接两个或多个字符串</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">var</span> b = a.concat(<span class="string">" "</span>,<span class="string">"world "</span>,<span class="string">"jdh"</span>);<span class="comment">// b为"hello world jdh"</span></div><div class="line"><span class="comment">//a字符串没有被改变</span></div></pre></td></tr></table></figure>
+
+<h2 id="替换字符_replace">替换字符 replace</h2>
+<h3 id="replace_用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。">replace 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Welcome to Microsoft! "</span>;</div><div class="line">str.replace(<span class="regexp">/Microsoft/g</span>, <span class="string">"jdh"</span>); <span class="regexp">//</span><span class="string">"Welcome to jdh! "</span></div></pre></td></tr></table></figure>
+
+<h2 id="转换大小写_toLowerCase_toUpperCase">转换大小写  toLowerCase toUpperCase</h2>
+<h3 id="toLowerCae_把字符串转换成小写。">toLowerCae 把字符串转换成小写。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! "</span>;</div><div class="line"><span class="keyword">str</span>.toLowerCae (); <span class="comment">//"welcome to microsoft!"</span></div></pre></td></tr></table></figure>
+
+<h3 id="toUpperCae_把字符串转换成小写。">toUpperCae  把字符串转换成小写。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! "</span>;</div><div class="line"><span class="keyword">str</span>.toUpperCae(); <span class="comment">//"WELCOME TO MICROSOFT!"</span></div></pre></td></tr></table></figure>
+
+<h2 id="查找字符串_indexOf_lastIndexOf_search_match_charAt">查找字符串  indexOf lastIndexOf search match  charAt</h2>
+<h3 id="indexOf_查找子串在目标字符串中出现的第一个位置，没有返回-1。可指定查找起始位置。">indexOf  查找子串在目标字符串中出现的第一个位置，没有返回-1。可指定查找起始位置。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! "</span>;</div><div class="line"><span class="keyword">str</span>.indexOf(<span class="string">"com"</span>,<span class="number">2</span>); <span class="comment">//3</span></div></pre></td></tr></table></figure>
+
+<h3 id="lastIndexOf_查找子串在目标字符串中出现的最后一个位置，没有返回-1。">lastIndexOf  查找子串在目标字符串中出现的最后一个位置，没有返回-1。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! come on！ "</span>;</div><div class="line"><span class="keyword">str</span>.lastIndexOf(<span class="string">"com"</span>); <span class="comment">//22</span></div></pre></td></tr></table></figure>
+
+<h3 id="search_查找子串在目标字符串中出现的第一一个位置，没有返回-1。功能与indexOf一致">search 查找子串在目标字符串中出现的第一一个位置，没有返回-1。功能与indexOf一致</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! come on！ "</span>;</div><div class="line"><span class="keyword">str</span>.search(<span class="string">"com"</span>); <span class="comment">//3</span></div><div class="line"><span class="keyword">str</span>.search(/com/); <span class="comment">//3</span></div></pre></td></tr></table></figure>
+
+<p>其与indexOf区别在于search能使用正则表达式，search只有一个参数</p>
+<h3 id="match_方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。返回目标字符串数组，支持正则表达式进行全局匹配">match 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。返回目标字符串数组，支持正则表达式进行全局匹配</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Welcome to Microsoft! come on！ "</span>;</div><div class="line">str.<span class="built_in">match</span>(/<span class="keyword">com</span>/<span class="keyword">g</span>);  //[<span class="string">"com"</span>,<span class="string">"com"</span>]</div></pre></td></tr></table></figure>
+
+<h3 id="charAt_返回指定位置的字符。">charAt 返回指定位置的字符。</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">str</span>=<span class="string">"Welcome to Microsoft! come on！ "</span>;</div><div class="line"><span class="keyword">str</span>.charAt(<span class="number">3</span>); <span class="comment">//c</span></div></pre></td></tr></table></figure>
+
+<h2 id="属性_length_返回I字符串长度">属性 length 返回I字符串长度</h2>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/前端/">前端</a>
+  </div>
+
+        
+		<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		<!-- partial('post/share') -->
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"woloveni8"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form  action="//www.baidu.com/s?" method="get" onsubmit="return searchData()" accept-charset="utf-8">
+    <input id="search" type="search" name="temp" results="0" placeholder="搜索">
+    <input id="realVale" type="hidden" name="wd" value="site:jdh.github.io">
+  </form>
+</div>
+<script>
+	function searchData(){
+        var result = document.getElementById("search").value;
+        document.getElementById("realVale").value = "site:jdh.github.io  " + result ;
+        return true;
+	}
+</script>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/前端/">前端</a><small>7</small></li>
+  
+  </ul>
+</div>
+
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 乐海
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

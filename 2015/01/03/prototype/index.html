@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端重点知识点 | 乐博</title>
+  <title>原型prototype | 乐博</title>
   <meta name="author" content="乐海">
   
   <meta name="description" content="前端 滑雪">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="前端重点知识点"/>
+  <meta property="og:title" content="原型prototype"/>
   <meta property="og:site_name" content="乐博"/>
 
   
@@ -54,47 +54,23 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-12-04T03:21:47.000Z"><a href="/2014/12/04/js-point/">12月 4 2014</a></time>
+        <time datetime="2015-01-03T04:33:29.000Z"><a href="/2015/01/03/prototype/">1月 3 2015</a></time>
       
       
   
-    <h1 class="title">前端重点知识点</h1>
+    <h1 class="title">原型prototype</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="javascript">javascript</h1>
-<ul>
-<li><p><a href="#">闭包（闭包的概念、闭包的作用、闭包实用场景、如何实现闭包）</a></p>
-</li>
-<li><p><a href="#">作用域（作用域概念、this有哪些需要注意的地方、如何把一个函数在另一个作用域使用）</a></p>
-</li>
-<li><p><a href="#">原型prototype（prototype与<em>proto</em>的关系和区别、哪些类型会有prototype/<em>proto</em>属性、prototype如何传递的）</a></p>
-</li>
-<li><p><a href="#">call与apply的区别是什么，哪些场景下使用</a></p>
-</li>
-<li><p><a href="#">js面向对象（如何理解面向对象，通过面向对象写一个例子，有什么好处）</a></p>
-</li>
-<li><p><a href="#">字符串（字符串操作有哪些方法，分别返回什么）</a></p>
-</li>
-<li><p><a href="#">数组（数组有哪些方法，分别返回什么）</a></p>
-</li>
-<li><p><a href="#">js设计模式（列举几个常用的设计模式、并各自实现出来）</a></p>
-</li>
-<li><p><a href="#">模块化开发（如何理解模块化开发、有哪些好处、如何实现、amd与cmd区别、requeri.js与sea.</a></p>
-</li>
-<li><p><a href="#">backbone与angularjs的优劣势，各有什么特点</a></p>
-</li>
-<li><p><a href="#">jquery（列举常用方法、列举几个jquery不同版本的区别api及使用实例、）</a></p>
-</li>
-<li><p><a href="#">事件（解释事件委托、事件冒泡、事件捕获）</a></p>
-</li>
-</ul>
-<h1 id="css">css</h1>
-<p>待完善</p>
-<h1 id="html">html</h1>
-<p>待完善</p>
+        <h1 id="prototype与proto的关系、原型链">prototype与<em>proto</em>的关系、原型链</h1>
+<h2 id="prototype原型及_proto关系">prototype原型及_proto关系</h2>
+<p>每个函数都有一个<strong>prototype</strong>（原型）属性，此属性为一个对象，对象包括此函数类型所有实例共享的属性和方法。</p>
+<p>当调用构造函数创建一个新实例时，实例内部包含一个指针（内部属性<strong><em>proto</em></strong>），指向构造函数的原型属性。因此这个连接关系存在于实例与构造函数原型属性之间，与构造函数没关系。</p>
+<p>prototype是<strong>构造函数</strong>用来定义<strong>实例</strong>中<em>proto</em>指针指向位置；<br><em>proto</em>是<strong>实例</strong>中原型真正其作用的关键，通过其去查找原型中共享的属性和方法；</p>
+<h2 id="原型链">原型链</h2>
+<p>原型是让一个引用类型继承另一个引用类型的属性和方法，如果被继承的引用类型又继承了其他引用类型，层层递进，就构成了实例与原型的链条。就是原型链的概念。</p>
 
       
     </div>
